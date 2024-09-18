@@ -17,10 +17,17 @@ public class FielController {
     FielRepository fielRepository;
 
     //TODO - FAZER POST E CRIAR FIEIS DE TESTE - OK
-    //TODO - FAZER LISTAGEM DE FIEIS
+    //TODO - FAZER LISTAGEM DE FIEIS - OK
     //TODO - ATUALIZAR DADOS DO FIEL
     //TODO - EXCLUIR UM FIEL
     //TODO - VALIDAR SE JÁ EXISTE CPF CADASTRADO
+
+
+    @GetMapping
+    ResponseEntity<Iterable<Fiel>> getFielList() {
+        Iterable<Fiel> fielList = fielRepository.findAll();
+        return ResponseEntity.ok(fielList);
+    }
 
 
     @GetMapping("id")
