@@ -1,7 +1,5 @@
 package br.com.projeto.api.Fiel;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,16 +10,16 @@ import java.util.Optional;
 @RequestMapping("/fieis")
 public class FielController {
 
-    private static final Logger log = LoggerFactory.getLogger(FielController.class);
     @Autowired
     FielRepository fielRepository;
 
     //TODO - FAZER POST E CRIAR FIEIS DE TESTE - OK
     //TODO - FAZER LISTAGEM DE FIEIS - OK
-    //TODO - ATUALIZAR DADOS DO FIEL
-    //TODO - EXCLUIR UM FIEL
+    //TODO - ATUALIZAR DADOS DO FIEL - OK
+    //TODO - EXCLUIR UM FIEL - OK
     //TODO - VALIDAR SE JÁ EXISTE CPF CADASTRADO
-
+    //TODO - EXCLUIR UM FIEL
+    //TODO - TRATAR MASCARA NO RETORNO DO CPF
 
     @GetMapping
     ResponseEntity<Iterable<Fiel>> getFielList() {
@@ -29,8 +27,7 @@ public class FielController {
         return ResponseEntity.ok(fielList);
     }
 
-
-    @GetMapping("id")
+    @GetMapping("/{id}")
     ResponseEntity<Fiel> getFielDetais(@PathVariable Long id) {
         Optional<Fiel> fiel = fielRepository.findById(id);
         return fiel.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
@@ -40,9 +37,33 @@ public class FielController {
     ResponseEntity<FielCreateResponse> createFiel(@RequestBody FielRequestPayload payload) {
         Fiel fiel = new Fiel(payload);
         fielRepository.save(fiel);
-        log.info("Salvando fiel " + fiel.getNome());
         return ResponseEntity.ok( new FielCreateResponse(fiel.getId()));
     }
+
+    @PutMapping("/{id}")
+    ResponseEntity<Fiel> updateFiel(@PathVariable Long id, @RequestBody FielRequestPayload payload) {
+        Optional<Fiel> fiel = fielRepository.findById(id);
+        if (fiel.isPresent()) {
+            Fiel fielUpdate = new Fiel(payload);
+            fielUpdate.setId(id);
+            fielRepository.save(fielUpdate);
+            return ResponseEntity.ok(fielUpdate);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    ResponseEntity<Void> deleteFiel(@PathVariable Long id) {
+        if (fielRepository.findById(id).isPresent()) {
+            fielRepository.deleteById(id);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
+
+
 
 

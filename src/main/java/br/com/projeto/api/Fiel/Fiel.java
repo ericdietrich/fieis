@@ -31,7 +31,7 @@ public class Fiel {
 
     public Fiel(FielRequestPayload data) {
         this.nome = data.nome();
-        this.cpf = data.cpf();
+        this.cpf = data.cpf().replace("-", "").replace(".", "");
         this.email = data.email();
     }
 }
