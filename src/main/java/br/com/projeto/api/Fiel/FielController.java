@@ -17,8 +17,8 @@ public class FielController {
     //TODO - FAZER LISTAGEM DE FIEIS - OK
     //TODO - ATUALIZAR DADOS DO FIEL - OK
     //TODO - EXCLUIR UM FIEL - OK
-    //TODO - VALIDAR SE JÁ EXISTE CPF CADASTRADO
-    //TODO - EXCLUIR UM FIEL
+    //TODO - VALIDAR SE JÁ EXISTE CPF CADASTRADO - OK
+    //TODO - EXCLUIR UM FIEL - OK
     //TODO - TRATAR MASCARA NO RETORNO DO CPF
 
     @GetMapping
@@ -35,6 +35,10 @@ public class FielController {
 
     @PostMapping
     ResponseEntity<FielCreateResponse> createFiel(@RequestBody FielRequestPayload payload) {
+        Optional<Fiel> fielConsulta = fielRepository.findByCpf(payload.cpf());
+         if (fielConsulta.isPresent()) {
+            return ResponseEntity.notFound().build();
+         }
         Fiel fiel = new Fiel(payload);
         fielRepository.save(fiel);
         return ResponseEntity.ok( new FielCreateResponse(fiel.getId()));
