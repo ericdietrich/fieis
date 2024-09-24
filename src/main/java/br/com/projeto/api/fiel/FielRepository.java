@@ -1,4 +1,4 @@
-package br.com.projeto.api.Fiel;
+package br.com.projeto.api.fiel;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
