@@ -28,7 +28,7 @@ public class FielController {
         // @GetMapping              - OK
         // @PostMapping             - OK
         // @PutMapping("/{id}")     - OK
-        // @GetMapping("/{id}")     - OK
+        // @GetMapping("/{id}")
     //TODO - TRATAR TIPO DO RETORNO QUANDO CPF JÁ EXISTE
     //TODO - CRIAR DIZIMO/OFERTA
 
