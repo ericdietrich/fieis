@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Fiel {
+public class FielEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,7 +27,7 @@ public class Fiel {
     @Column
     private String email;
 
-    public Fiel(FielRequestPayload data) {
+    public FielEntity(FielRequestPayload data) {
         this.nome = data.nome();
         this.cpf = data.cpf().replace("-", "").replace(".", "");
         this.email = data.email();
