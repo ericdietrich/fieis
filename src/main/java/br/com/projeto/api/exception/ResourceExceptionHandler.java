@@ -22,4 +22,18 @@ public class ResourceExceptionHandler {
         err.setPath(request.getRequestURI());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
     }
+
+    @ExceptionHandler(ResourceAlreadyExistsException.class)
+    public static ResponseEntity<StandardError> resourceAlreadyExists(ResourceAlreadyExistsException e, HttpServletRequest request) {
+        StandardError err = new StandardError();
+        err.setStatus(HttpStatus.CONFLICT.value());
+        err.setTimestamp(Instant.now());
+        err.setError("Resource Already Exists");
+        err.setMessage(e.getMessage());
+        err.setPath(request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(err);
+    }
 }
+
+
+

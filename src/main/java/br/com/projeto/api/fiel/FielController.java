@@ -1,7 +1,5 @@
 package br.com.projeto.api.fiel;
 
-import br.com.projeto.api.exception.ResourceExceptionHandler;
-import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,18 +34,18 @@ public class FielController {
         // @GetMapping("/{id}")     - OK
     //TODO - CRIAR CAMADA DE EXCEPTIONS (criando camada de serviço para criar exceptions personalizadas) - OK
     //TODO - ENVIAR PARA CAMADA DE SERVICOS -
-        // @GetMapping              -
+        // @GetMapping              - OK
         // @GetMapping("/{id}")     - OK
-        // @PostMapping             -
+        // @PostMapping             - OK
         // @PutMapping("/{id}")     -
     //TODO - TRATAR TIPO DO RETORNO QUANDO CPF JÁ EXISTE
-        // @PostMapping
+        // @PostMapping             - OK
     //TODO - CRIAR DIZIMO/OFERTA
 
 
     @GetMapping
     ResponseEntity<List<FielCreateResponse>> getFielList() {
-        List<FielEntity> fielList = fielRepository.findAll();
+        List<FielEntity> fielList = fielService.findAll();
         List<FielCreateResponse> responseList = fielList.stream().map(FielCreateResponse::new).toList();
         return ResponseEntity.ok(responseList);
     }
@@ -61,13 +59,9 @@ public class FielController {
 
     @PostMapping
     ResponseEntity<FielCreateResponse> createFiel(@RequestBody FielRequestPayload payload) {
-        Optional<FielEntity> fielConsulta = fielRepository.findByCpf(payload.cpf());
-         if (fielConsulta.isPresent()) {
-            return ResponseEntity.notFound().build();
-         }
         FielEntity fiel = new FielEntity(payload);
-        fielRepository.save(fiel);
-        FielCreateResponse response = new FielCreateResponse(fiel);
+        FielEntity fielSaldo = fielService.save(fiel);
+        FielCreateResponse response = new FielCreateResponse(fielSaldo);
         log.info("createFiel: {}", response.cpf());
         return ResponseEntity.ok(response);
     }
