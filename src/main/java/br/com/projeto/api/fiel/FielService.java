@@ -30,4 +30,9 @@ public class FielService {
         }
         return fielRepository.save(fiel);
     }
+
+    public FielEntity update(FielEntity fiel) {
+        fielRepository.findById(fiel.getId()).orElseThrow(() -> new EntityNotFoundException("Fiel não encontrado com o id: " + fiel.getId()));
+        return fielRepository.save(fiel);
+    }
 }

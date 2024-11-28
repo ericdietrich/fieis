@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/fieis")
@@ -37,7 +36,8 @@ public class FielController {
         // @GetMapping              - OK
         // @GetMapping("/{id}")     - OK
         // @PostMapping             - OK
-        // @PutMapping("/{id}")     -
+        // @PutMapping("/{id}")     - OK
+        //@DeleteMapping("/{id}")
     //TODO - TRATAR TIPO DO RETORNO QUANDO CPF JÁ EXISTE
         // @PostMapping             - OK
     //TODO - CRIAR DIZIMO/OFERTA
@@ -68,16 +68,11 @@ public class FielController {
 
     @PutMapping("/{id}")
     ResponseEntity<FielCreateResponse> updateFiel(@PathVariable Long id, @RequestBody FielRequestPayload payload) {
-        Optional<FielEntity> fiel = fielRepository.findById(id);
-        if (fiel.isPresent()) {
-            FielEntity fielUpdate = new FielEntity(payload);
-            fielUpdate.setId(id);
-            fielRepository.save(fielUpdate);
-            FielCreateResponse response = new FielCreateResponse(fielUpdate);
-            return ResponseEntity.ok(response);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        FielEntity fiel = new FielEntity(payload);
+        fiel.setId(id);
+        FielEntity fielUpdate = fielService.update(fiel);
+        FielCreateResponse response = new FielCreateResponse(fielUpdate);
+        return ResponseEntity.ok(response);
     }
 
     @DeleteMapping("/{id}")
