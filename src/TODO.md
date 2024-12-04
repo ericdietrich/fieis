@@ -15,7 +15,7 @@
         // @GetMapping("/{id}")     - OK
         // @PostMapping             - OK
         // @PutMapping("/{id}")     - OK
-        //@DeleteMapping("/{id}")   - OK
+        // @DeleteMapping("/{id}")  - OK
     //TODO - TRATAR TIPO DO RETORNO QUANDO CPF JÁ EXISTE
         // @PostMapping             - OK
     //TODO - CATEGORIA
@@ -23,10 +23,10 @@
         // @GetMapping("/{id}")     - OK
         // @PostMapping             - OK
         // @PutMapping("/{id}")     - OK
-        //@DeleteMapping("/{id}")   - 
+        // @DeleteMapping("/{id}")  - OK
     //TODO - CRIAR DIZIMO/OFERTA
         // @GetMapping              - 
         // @GetMapping("/{id}")     - 
         // @PostMapping             - 
         // @PutMapping("/{id}")     - 
-        //@DeleteMapping("/{id}")   - 
+        // @DeleteMapping("/{id}")  - 

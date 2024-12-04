@@ -31,7 +31,12 @@ public class CategoriaService {
     }
 
     public CategoriaEntity update(CategoriaEntity categoria) {
-        CategoriaEntity categoriaSalva = categoriaRepository.findById(categoria.getId()).orElseThrow(() -> new EntityNotFoundException("Categoria não encontrada com o id "+ categoria.getId()));
+        categoriaRepository.findById(categoria.getId()).orElseThrow(() -> new EntityNotFoundException("Categoria não encontrada com o id "+ categoria.getId()));
         return categoriaRepository.save(categoria);
+    }
+
+    public void delete(Long id) {
+        CategoriaEntity categoriaSalva = categoriaRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Categoria não encontrada com o id "+ id));
+        categoriaRepository.delete(categoriaSalva);
     }
 }
