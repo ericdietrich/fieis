@@ -25,8 +25,8 @@
         // @PutMapping("/{id}")     - OK
         // @DeleteMapping("/{id}")  - OK
     //TODO - CRIAR DIZIMO/OFERTA
-        // @GetMapping              - 
+        // @GetMapping              - OK
         // @GetMapping("/{id}")     - 
-        // @PostMapping             - 
+        // @PostMapping             - OK
         // @PutMapping("/{id}")     - 
         // @DeleteMapping("/{id}")  - 
