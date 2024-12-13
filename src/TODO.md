@@ -1,32 +1,36 @@
-    //TODO - FAZER POST E CRIAR FIEIS DE TESTE - OK
-    //TODO - FAZER LISTAGEM DE FIEIS - OK
-    //TODO - ATUALIZAR DADOS DO FIEL - OK
-    //TODO - EXCLUIR UM FIEL - OK
-    //TODO - VALIDAR SE JÁ EXISTE CPF CADASTRADO - OK
-    //TODO - EXCLUIR UM FIEL - OK
-    //TODO - TRATAR MASCARA NO RETORNO DO CPF - OK
-        // @GetMapping              - OK
-        // @PostMapping             - OK
-        // @PutMapping("/{id}")     - OK
-        // @GetMapping("/{id}")     - OK
-    //TODO - CRIAR CAMADA DE EXCEPTIONS (criando camada de serviço para criar exceptions personalizadas) - OK
-    //TODO - ENVIAR PARA CAMADA DE SERVICOS -
-        // @GetMapping              - OK
-        // @GetMapping("/{id}")     - OK
-        // @PostMapping             - OK
-        // @PutMapping("/{id}")     - OK
-        // @DeleteMapping("/{id}")  - OK
-    //TODO - TRATAR TIPO DO RETORNO QUANDO CPF JÁ EXISTE
-        // @PostMapping             - OK
-    //TODO - CATEGORIA
-        // @GetMapping              - OK
-        // @GetMapping("/{id}")     - OK
-        // @PostMapping             - OK
-        // @PutMapping("/{id}")     - OK
-        // @DeleteMapping("/{id}")  - OK
-    //TODO - CRIAR DIZIMO/OFERTA
-        // @GetMapping              - OK
-        // @GetMapping("/{id}")     - 
-        // @PostMapping             - OK
-        // @PutMapping("/{id}")     - 
-        // @DeleteMapping("/{id}")  - 
+FIEIS 
+ [x] FAZER POST E CRIAR FIEIS DE TESTE
+ [x] FAZER LISTAGEM DE FIEIS
+ [x] ATUALIZAR DADOS DO FIEL
+ [x] EXCLUIR UM FIEL
+ [x] VALIDAR SE JÁ EXISTE CPF CADASTRADO
+ [x] EXCLUIR UM FIEL
+ [x] TRATAR MASCARA NO RETORNO DO CPF
+ [x] @GetMapping
+ [x] @PostMapping
+ [x] @PutMapping("/{id}")
+ [x] @GetMapping("/{id}")
+ [ ] Listar dízimos e ofertas por fiel -GET /fieis/{id}/dizimos-e-ofertas
+ [ ]Filtrar dízimos e ofertas por período:GET /dizimos-e-ofertas?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD
+EXCEPTIONS
+ [x] CRIAR CAMADA DE EXCEPTIONS (criando camada de serviço para criar exceptions personalizadas)
+ENVIAR PARA CAMADA DE SERVICOS
+ [x] @GetMapping
+ [x] @GetMapping("/{id}")
+ [x] @PostMapping
+ [x] @PutMapping("/{id}")
+ [x] @DeleteMapping("/{id}")
+ [x] TRATAR TIPO DO RETORNO QUANDO CPF JÁ EXISTE
+ [x] @PostMapping
+CATEGORIA
+ [x] @GetMapping
+ [x] @GetMapping("/{id}")
+ [x] @PostMapping
+ [x] @PutMapping("/{id}")
+ [x] @DeleteMapping("/{id}") 
+CRIAR DIZIMO/OFERTA
+ [x] @GetMapping
+ [x] @GetMapping("/{id}")
+ [x] @PostMapping
+ [ ] @PutMapping("/{id}")
+ [ ] @DeleteMapping("/{id}") 
