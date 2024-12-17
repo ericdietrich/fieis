@@ -1,4 +1,4 @@
-FIEIS 
+### FIEIS 
  [x] FAZER POST E CRIAR FIEIS DE TESTE
  [x] FAZER LISTAGEM DE FIEIS
  [x] ATUALIZAR DADOS DO FIEL
@@ -10,11 +10,11 @@ FIEIS
  [x] @PostMapping
  [x] @PutMapping("/{id}")
  [x] @GetMapping("/{id}")
- [ ] Listar dízimos e ofertas por fiel -GET /fieis/{id}/dizimos-e-ofertas
- [ ]Filtrar dízimos e ofertas por período:GET /dizimos-e-ofertas?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD
-EXCEPTIONS
+ [ ] Listar dízimos e ofertas por fiel -GET /fieis/{id}/transacoes
+ [ ] Filtrar dízimos e ofertas por período:GET /transacoes?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD
+### EXCEPTIONS
  [x] CRIAR CAMADA DE EXCEPTIONS (criando camada de serviço para criar exceptions personalizadas)
-ENVIAR PARA CAMADA DE SERVICOS
+### ENVIAR PARA CAMADA DE SERVICOS
  [x] @GetMapping
  [x] @GetMapping("/{id}")
  [x] @PostMapping
@@ -22,15 +22,15 @@ ENVIAR PARA CAMADA DE SERVICOS
  [x] @DeleteMapping("/{id}")
  [x] TRATAR TIPO DO RETORNO QUANDO CPF JÁ EXISTE
  [x] @PostMapping
-CATEGORIA
+### CATEGORIA
  [x] @GetMapping
  [x] @GetMapping("/{id}")
  [x] @PostMapping
  [x] @PutMapping("/{id}")
  [x] @DeleteMapping("/{id}") 
-CRIAR DIZIMO/OFERTA
+### CRIAR DIZIMO/OFERTA
  [x] @GetMapping
  [x] @GetMapping("/{id}")
  [x] @PostMapping
- [ ] @PutMapping("/{id}")
+ [x] @PutMapping("/{id}")
  [ ] @DeleteMapping("/{id}") 

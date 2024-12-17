@@ -23,4 +23,9 @@ public class TransacaoService {
     public TransacaoEntity createTransacao(TransacaoEntity transacao) {
         return transacaoRepository.save(transacao);
     }
+
+    public TransacaoEntity update(TransacaoEntity transacao) {
+        transacaoRepository.findById(transacao.getId()).orElseThrow(() -> new EntityNotFoundException("Transacao não encontrado com o id: " + transacao.getId()));
+        return transacaoRepository.save(transacao);
+    }
 }

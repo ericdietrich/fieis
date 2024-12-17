@@ -24,8 +24,6 @@ public class TransacaoController {
     @Autowired
     FielService fielService;
 
-
-
     @GetMapping
     public ResponseEntity<List<TransacaoCreateResponse>> getTransacaoList() {
         List<TransacaoEntity> transacaoList = transacaoService.findAll();
@@ -48,6 +46,16 @@ public class TransacaoController {
         TransacaoEntity transacao = new TransacaoEntity(payload, fielService.findById(payload.fielId()), categoriaService.findById(payload.categoriaId()));
         TransacaoEntity transacaoSalva = transacaoService.createTransacao(transacao);
         TransacaoCreateResponse response = new TransacaoCreateResponse(transacaoSalva);
+        return ResponseEntity.ok(response);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<TransacaoCreateResponse> updateTransacao(@RequestBody TransacaoRequestPayload payload, @PathVariable Long id) {
+        TransacaoEntity transacaoEncontrada = transacaoService.findById(id);
+        TransacaoEntity transacaoAtualizada = new TransacaoEntity(payload, transacaoEncontrada.getFiel(), transacaoEncontrada.getCategoria());
+        transacaoAtualizada.setId(transacaoEncontrada.getId());
+        transacaoAtualizada = transacaoService.update(transacaoAtualizada);
+        TransacaoCreateResponse response = new TransacaoCreateResponse(transacaoAtualizada);
         return ResponseEntity.ok(response);
     }
 }
