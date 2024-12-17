@@ -58,4 +58,10 @@ public class TransacaoController {
         TransacaoCreateResponse response = new TransacaoCreateResponse(transacaoAtualizada);
         return ResponseEntity.ok(response);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteTransacao(@PathVariable Long id) {
+        transacaoService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }

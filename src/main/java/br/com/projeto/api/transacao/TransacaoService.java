@@ -28,4 +28,9 @@ public class TransacaoService {
         transacaoRepository.findById(transacao.getId()).orElseThrow(() -> new EntityNotFoundException("Transacao não encontrado com o id: " + transacao.getId()));
         return transacaoRepository.save(transacao);
     }
+
+    public void delete(Long id) {
+        TransacaoEntity transacao = transacaoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Transacao não encontrado com o id: " + id));
+        transacaoRepository.delete(transacao);
+    }
 }
