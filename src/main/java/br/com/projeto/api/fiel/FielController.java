@@ -1,5 +1,8 @@
 package br.com.projeto.api.fiel;
 
+import br.com.projeto.api.transacao.TransacaoCreateResponse;
+import br.com.projeto.api.transacao.TransacaoEntity;
+import br.com.projeto.api.transacao.TransacaoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +19,8 @@ public class FielController {
 
     @Autowired
     private FielService fielService;
+    @Autowired
+    private TransacaoService transacaoService;
 
     @GetMapping
     ResponseEntity<List<FielCreateResponse>> getFielList() {
@@ -53,6 +58,14 @@ public class FielController {
     ResponseEntity<Void> deleteFiel(@PathVariable Long id) {
         fielService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}/transacoes")
+    ResponseEntity<List<TransacaoCreateResponse>> getFielTransacoes(@PathVariable Long id) {
+        FielEntity fiel = fielService.findById(id);
+        List<TransacaoEntity> transacaoList = transacaoService.findByFiel(fiel);
+        List<TransacaoCreateResponse> responseList = transacaoList.stream().map(TransacaoCreateResponse::new).toList();
+        return ResponseEntity.ok(responseList);
     }
 }
 

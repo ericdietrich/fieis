@@ -12,7 +12,7 @@
  [x] @PostMapping  
  [x] @PutMapping("/{id}")  
  [x] @GetMapping("/{id}")  
- [ ] Listar dízimos e ofertas por fiel -GET /fieis/{id}/transacoes  
+ [x] Listar dízimos e ofertas por fiel -GET /fieis/{id}/transacoes  
  [ ] Filtrar dízimos e ofertas por período:GET /transacoes?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD  
 ### EXCEPTIONS  
  [x] CRIAR CAMADA DE EXCEPTIONS (criando camada de serviço para criar exceptions personalizadas)    
@@ -25,11 +25,11 @@
  [x] TRATAR TIPO DO RETORNO QUANDO CPF JÁ EXISTE  
  [x] @PostMapping  
 ### CATEGORIA
- [x] @GetMapping
- [x] @GetMapping("/{id}")
- [x] @PostMapping
- [x] @PutMapping("/{id}")
- [x] @DeleteMapping("/{id}") 
+ [x] @GetMapping  
+ [x] @GetMapping("/{id}")  
+ [x] @PostMapping  
+ [x] @PutMapping("/{id}")  
+ [x] @DeleteMapping("/{id}")   
 ### CRIAR DIZIMO/OFERTA
  [x] @GetMapping  
  [x] @GetMapping("/{id}")  
