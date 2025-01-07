@@ -36,3 +36,10 @@
  [x] @PostMapping  
  [x] @PutMapping("/{id}")  
  [x] @DeleteMapping("/{id}")   
+### PAGINAÇÃO
+ [ ] Lista de fieis  
+ [ ] Lista de categorias  
+ [ ] Lista de transacoes  
+ [ ] Lista de transacoes por fiel  
+
+
